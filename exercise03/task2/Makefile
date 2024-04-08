@@ -1,17 +1,12 @@
 CC = gcc
-CFLAGS = -Wextra -Wall -std=c11 -pthread 
+CFLAGS = -Wextra -Wall -std=c11 -g 
 
 .PHONY: clean all
 
-task1_mutex: task1_mutex.c
+all: calculator
+
+calculator: calculator.c
 	$(CC) $(CFLAGS) $^ -o $@
-
-all: task1_mutex
-
-task1_atmoic: task1_atomic.c
-	$(CC) $(CFLAGS) $^ -o $@
-
-all: task1_mutex task1_atomic
 
 clean:
-	$(RM) *.o task1_mutex task1_atmoic
+	$(RM) *.o calculator
