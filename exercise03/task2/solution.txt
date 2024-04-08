@@ -1,0 +1,10 @@
+To get the exit code of the previous executed command in bash, use echo $?.
+
+&&: The logical AND Operator only executes the command following it, when the predecessor was successfully executed. The operator checks the exit code of the command predeceding it. If the exit code is 0 the succeeding command will be executed.
+
+||: The logical OR operator only executed the command following it, when the predecessor fails. If the exit code of the first command is non-zero, the second one is executed. It is the inversion of &&.
+
+;: The semicolon operator is used to chain commands together. The commands will always execute sequentially. The following command runs when ever the previous one has finished, regardless of the exit code.
+
+
+Source: https://linuxopsys.com/topics/bash-chain-operators-in-linux (28.03.2023)
