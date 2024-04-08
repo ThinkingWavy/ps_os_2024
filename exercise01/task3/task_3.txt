@@ -1,0 +1,17 @@
+Passing arguments:
+
+./list_args one "two words" "\"quotes\"" "'more' \"quotes\""
+
+
+Get command from shell history:
+
+history | cut -c 8- | grep ./list_args | grep -v history > args.txt
+
+explanation: display history | remove line numbers | search for ./list_args | exclude all containing history  > write to file args.txt
+
+
+removing line numbers taken from here: https://stackoverflow.com/questions/7110119/bash-history-without-line-numbers
+
+Running command from txt file:
+
+source args.txt

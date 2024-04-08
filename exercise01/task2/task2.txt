@@ -1,0 +1,47 @@
+Connecting to ZID-GPL:  ssh -l csaz1169 zid-gpl.uibk.ac.at
+
+pwd:                print name of current directory aka path
+ls:                 list files in current directory 
+cd <path>:          change into specified directory
+touch <filename>:   touches a file -> update the access information or creates it if not existing
+cp <src> <dst>:     copies the source to the destination
+mv <src> <dst>:     moves the src to the destination, can also be used to rename files/directories
+grep <search term>: looks in an input for the specified term
+<cmd1> > <file>:    directs output into specified file -> output will not be displayed on the command line
+<cmd1> | <cmd2>:    output of cmd1 will be input of cmd2
+nano <file>:        terminal based basic text editor
+history:            displays last 1000 commands used in bash -> can be filtered using: history | grep <term>
+cat <filename>:     displays content of a file
+
+man:                manual pages, contain information on commands or library function, not all manual pages may be installed by default, like POSIX
+man man-pages:      describes the structure of the man pages, they are categorized in chapters    
+    1: user commands                            ->  contains information on programs executable from the shell, like ls, cp and etc.
+    2: system calls                             ->  contains information on system calls like write, read
+    3: library calls                            ->  contains information on all library function for c
+    4: special files                            ->  contains information on special files in the /dev folder
+    5: file formats and configuration files:    ->  contains information on human-readable file formats and configuration files on the system
+    6: games:                                   ->  contains information on games and other funny programs on the system
+    7: overview, conventions, miscellaneous:    ->  contains information on standards, conventions and such things
+    8: system management commands:              ->  contains information on commands for managing the system mount or sudo
+
+
+man file-hierarchy:     Describes the file-hierarchy used by Linux. The file tree starts at the root /. In Linux everything is a file, also directories and devices.
+    Some important directories:
+        - /boot/    ->  contains everything needed to boot the system
+        - /home/    ->  contains the home directory for normal users.
+        - /etc/     ->  contains configuration files for the system or for programs
+        - /tmp/     ->  contains temporary files, will be lost on reboot or after a given time without access
+        - /sys/     ->  API to the kernel
+
+man printf:     user program in the shell to print something in a formatted way
+man 3 printf:   library function in libc, callable inside a c program
+
+copy files to zid-gpl: (executed on local machine)
+    scp <path-on-local-machine> <csaz1169@zid-gpl.uibk.ac.at>:<path-on-zid>
+
+copy files from zid-gpl to local: (executed on local machine)
+    scp <csaz1169@zid-gpl.uibk.ac.at>:<path-on-zid> <path-on-local-machine>
+
+retrace commands:
+    search in history using: 
+        history | grep <search-term>
