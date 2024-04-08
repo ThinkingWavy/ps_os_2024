@@ -1,0 +1,9 @@
+Is the order of the messages consistent? 
+    No the order is not consistent it depends on when each child process finishes.
+
+Can the order of these messages be predicted? 
+    No, it can not be predicted.
+
+What does it depend on?
+    It depends on when the individual processes get time on the CPU, meaning when they get executed. 
+    More precisely, it depends on the schedular.

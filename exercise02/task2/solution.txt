@@ -1,0 +1,9 @@
+What difference do you notice between SIGINT and SIGKILL?
+    SIGINT is a request to the process to terminate. Whether SIGKILL is not changed by the program it will always terminate the process.
+
+What happens when you press CTRL + c while the program is running?
+    CTRL + C triggers the sending of SIGINT to the process. The process can change the action, therefore it is not guaranteed that the program terminates.
+
+What can the signals SIGSTOP and SIGCONT be used for?
+    SIGSTOP stops the execution of a process without killing it. With SIGCONT such a suspended process can be started again.
+    This can be used to remove a process from the scheduling if one knows that it won't be needed for some time.
