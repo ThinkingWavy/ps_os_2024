@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define ENV_VAR "OFFSET"
+
 bool check_operator(const char* operator);
 void error_message(const char* name);
 bool convert_str_double(char** input, double* result, int len);
@@ -34,17 +36,20 @@ int main(int argc, char** argv) {
 	// check if arguments were numbers
 	if (!convert_str_double(argv, values, argc - 2)) {
 		fprintf(stderr, "Some Input was not a valid double.\n");
+		free(values);
 		return NOT_NUMBER_ERROR;
 	}
 	// if only one operand is given
 	if (argc == 3) {
 		printf("Result: %lf\n", values[0] + offset);
+		free(values);
 		return EXIT_SUCCESS;
 	}
 
 	double result;
 	if (!calculate(&result, values, argv[1], argc - 2)) {
 		fprintf(stderr, "Dividing by zero is not possible.\n");
+		free(values);
 		return DIVIDE_BY_ZERO_ERROR;
 	}
 
@@ -64,7 +69,9 @@ bool check_operator(const char* operator) {
 }
 
 void error_message(const char* name) {
-	fprintf(stderr, "Usage: %s '<operator>' <number> ...\nAvailable operators : +, -, *, / ", name);
+	fprintf(stderr,
+	        "Usage: %s \033[0;37m'<operator>' <number> ...\nAvailable operators : +, -, *, / \n",
+	        name);
 }
 
 bool convert_str_double(char** input, double* result, int len) {
@@ -83,7 +90,11 @@ bool convert_str_double(char** input, double* result, int len) {
 double check_offset() {
 	double offset = 0.0;
 	char* end;
-	offset = strtod(getenv("OFFSET"), &end);
+	char* env = getenv(ENV_VAR);
+	if (env == NULL) {
+		return 0.0;
+	}
+	offset = strtod(env, &end);
 	if (strcmp(end, "")) {
 		perror("no valid offset found\n");
 		return 0.0;
