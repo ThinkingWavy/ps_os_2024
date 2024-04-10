@@ -1,0 +1,53 @@
+Answer the following questions:
+- Which command did you use to set the permissions for 'task1.txt'?
+---------------------------------------------------------------------
+chmod 600 task1.txt
+
+- Which command did you use to set the permissions for 'file.txt'?
+--------------------------------------------------------------------
+chmod 400 file.txt
+
+- Explain how to read these permission strings (e.g. `rw-rw-r--`).
+------------------------------------------------------------------
+r ... read permission
+w ... write permission
+x ... execute permission
+The permissions are grouped in groups of three for "User,Group,Others".
+In the example: rw repressents read and write permissions for the user. The same is applicable for the group.
+    And others are just allowed to read the file.
+
+- How do these permission strings relate to octal permissions (e.g. `0644`)?
+------------------------------------------------------------------------------
+The permissions are encoded in a octal bitmask. 
+r... 2^2 = 4
+w... 2^1 = 2
+x... 2^0 = 1
+Each tripple is represented by one number corresponding to the permissions of the access group.
+There are three access groups as mentioned before. But why are there four numbers?
+In the man page for chmod the answer can be found. The four numbers correspond to:
+"Special,User,Group,Others"
+The special bits are:
+4 ... UID always run file as owner 
+2 ... GID always run file as group
+1 ... sticky bit.
+The sticky bits are important for folders. If it is set, just the owner can delete the folder
+or files inside it. 
+
+
+- What is the benefit of having 'groups' and 'others'?
+----------------------------------------------------------
+It is secure to have granular control of the permissions. 
+Further is efficient and usefull for collaboration.
+The administrators of a system can control the permissions for a group of people all at once
+by using the corresponding groups permission. 
+Others should often not be able to access some files in specific directories.
+
+
+- In your opinion, what are the ideal permissions for ...
+-----------------------------------------------------------
+  - ... a text file used to take private notes? -> 0600
+  - ... a shell script? -> 0755
+  - ... a config file that should not be edited? -> 1555
+
+Hand 'task1.txt' as your solution.
+
