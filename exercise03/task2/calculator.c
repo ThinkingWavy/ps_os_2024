@@ -69,9 +69,7 @@ bool check_operator(const char* operator) {
 }
 
 void error_message(const char* name) {
-	fprintf(stderr,
-	        "Usage: %s \033[0;37m'<operator>' <number> ...\nAvailable operators : +, -, *, / \n",
-	        name);
+	fprintf(stderr, "Usage: %s '<operator>' <number> ...\nAvailable operators : +, -, *, / \n", name);
 }
 
 bool convert_str_double(char** input, double* result, int len) {
