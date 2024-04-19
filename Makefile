@@ -1,6 +1,6 @@
 # adapted from the provided Makefile from last years PS
 USERNAME = csaw1585
-EXERCISE = 02
+EXERCISE = 04
 
 EXCLUDE_PATTERNS = "**.vscode/*" "**.idea/*" "**__MACOSX/*" "**.DS_Store/*" "**.dSYM/*" "*.md"
 
