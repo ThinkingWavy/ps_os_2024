@@ -1,0 +1,26 @@
+Execution times:
+    mutex:      User time (seconds) 0.83
+                System time (seconds) 0.90
+
+    atomics:    User time (seconds) 2.12
+                System time (seconds) 0.10
+
+
+What is the effect of specifying optimization flags when compiling?
+    These flags tell the compiler to improve the performance and the code size but the compile time will be longer.
+
+How do -O2 and -O3 differ?
+    -02: GCC performs nearly all supported optimizations that do not involve a space-speed tradeoff.
+    -O3:  -O3 turns on all optimizations specified by -O2 and some more.
+
+   Source: https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html
+
+What is the difference between using += on a normal vs. an atomic integer type?
+    += is a race condition with normal integers but not on atomic integers. 
+
+How does using e.g. += on atomic types relate to using atomic functions such as atomic_fetch_add?
+    They are the same both are guaranteed to be atomic
+
+Which operations other than decrementing/incrementing can be done atomically?
+    All read-modify-write operators (e.g ++ or *=) on these are guaranteed to be atomic.
+    Source: https://riptutorial.com/c/topic/4924/atomics

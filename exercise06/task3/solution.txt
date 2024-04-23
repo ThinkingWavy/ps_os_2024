@@ -1,0 +1,35 @@
+
+#Benchmarked wall time 
+
+./task2/task2 250 100000
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.00
+
+./task3/task3 250 100000
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.75
+
+./task2/task2 500 100000
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.01
+
+./task3/task3 500 100000
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.72
+
+./task2/task2 1000 100000
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.02
+
+./task3/task3 1000 100000
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.71
+
+
+
+What is the advantage of using a condition variable in this case, compared to using plain mutexes?
+    It works more efficiently, and it is guaranteed by the OS to work correctly.
+
+When would you use condition variables?
+    In cases where it is easily possible to define and check a condition.
+
+What are spurious wakeups in the context of condition variables, and how can they be mitigated?
+    Spurious wakeups occur when the condition variable gets a signal even though the condition is not true.
+    Can be mitigated by checking the condition itself before continuing.
+
+How does the program behavior differ between the two variants?
+    The variant with the condition variable is much faster and more efficient in terms of CPU usage than the other one.
