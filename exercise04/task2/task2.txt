@@ -1,0 +1,8 @@
+<:      This operator is used for input redirection. The standard input for a command on the left side comes from the right side.
+        When files are used, the redirection is in read-only mode.
+
+>:      This operator redirects the standard output of a command on the left side. For example, write the standard output to a file.
+
+2>:     This operator redirects the standard output of the command on the left side to standard error.
+
+2>&1:   This operator redirects the standard output and the standard error to a command on the right side.
