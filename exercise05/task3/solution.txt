@@ -1,0 +1,52 @@
+TASK 3A:
+The second implementation with semaphores is significantly slower than the method using the ring buffer in task2.
+
+/usr/bin/time -v /task3 32042 304211112 304 
+user time (seconds):    113.37
+wall clock time:        1:40.55
+
+/usr/bin/time -v /task2 32042 304211112 304
+user time (seconds):    5.67 
+wall clock time:        0:02.92 
+----------------------------------------------------------------
+
+TASK 3B:
+What is the difference between shared memory and e.g. a global variable after calling fork()?
+    Shared memory can be accessed by different processes they must not be the child of a common ancestor process.
+    Also, shared memory can be accessed after the termination of a process.
+
+What is a race condition? Why do race conditions occur?
+    A race condition occurs when the execution order of different threads or processes determines the final result.
+    Race conditions can occur when no synchronization is used.
+
+Is the output of a program with a race condition always incorrect?
+    No, one or multiple sequences can produce correct results. That leads to a difficult detection of such conditions. 
+
+If you run your program 100 times and always get the correct result, does that mean that there is no race condition?
+    No, because there is a certain random factor to it.
+
+What is a critical section? What role does it play in preventing race conditions?
+    A section of the code in which a race condition can occur is called a critical section. In a multi-processed or -threaded program,
+    this section must only be accessed by one thread at a time! Often a shared resource is used in it which must be synchronized.
+
+What is synchronization?
+    Synchronization ensures that different parts of a program or system are properly coordinated and that data is shared and updated correctly.
+
+Why are semaphores well-suited for synchronizing such programs?
+    With semaphores, resource availability can be implemented. In most cases, it can be useful that not just one
+    thread or process is working at a given time. Maybe multiple instances can access different parts of shared data at the same time.
+
+Could you use also one semaphore to solve this program?
+    Generally no. Synchronization is required to tell how much data is available and how much memory space is left. Semaphores are best fitted to
+    tackle this synchronization problem. But if alternate methods are allowed, then the second semaphore could be replaced with a different
+    synchronization method.
+
+
+There are two ways of creating a POSIX semaphore. Which would you use when?
+    Assuming: named and unnamed semaphores are meant
+
+    named semaphores: I would use them when access from completely different processes is needed or the
+                      semaphore should be available after the termination of the creation process.
+
+    unnamed semaphores: I would use them when the access is only needed from the threads/children process of one process. And after termination
+                        the semaphore should not be available anymore.

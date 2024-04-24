@@ -1,0 +1,12 @@
+What is the range of possible priorities defined by POSIX?
+
+It differs in each system. The minimum priority range required by the POSIX standard is
+from 0 to 31. 
+POSIX.1 range 0 to 31
+Linux: ran 0 to 32768-1
+
+Are you limited to this range on your system?
+On the ZID it is 32768-1 (sysconf(_SC_MQ_PRIO_MAX) - 1)
+
+What is more important a task with priority 2 or 99 (gets scheduled first)?
+The order is from 0 (low) to 31 or _SC_MQ_PRIO_MAX (high). So 99 gets scheduled first!
