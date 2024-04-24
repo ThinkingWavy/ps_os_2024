@@ -1,7 +1,7 @@
 .Phony: zip clean all
 
 NAME=exc05_csaw1585
-EXCLUDE_FILES := README.md
+EXCLUDE_FILES = "**.vscode/*" "**.idea/*" "**__MACOSX/*" "**.DS_Store/*" "**.dSYM/*" "README.md"
 
 all:
 	cd task1 && $(MAKE)
