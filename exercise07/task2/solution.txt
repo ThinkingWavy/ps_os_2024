@@ -1,0 +1,47 @@
+Explain the program.
+----------------------------------------------------------------
+The program creates several Philosphers and an equal amount of Chopsticks. Each philospher tries to dine
+and in that process tries to get two chopsticks by first acquiring his/her right chopstick. The philosphers
+are represented by threads and the Chopsticks are mutexes. Afterward, the program destroys its resources and exits.
+
+
+How can a deadlock occur? Does it always happen?
+----------------------------------------------------------------
+The deadlock occurs if all programs hold one Chopstick, because then they have locked the one and nobody 
+else will release their resources. This leads to a deadlock in the program. If some hold two then they can dine and 
+release two of them at once which further enables others to eat. Therefore, it does not always end up with a deadlock. 
+
+
+Change the program to prevent any potential deadlocks from occurring.
+---------------------------------------------------------------- 
+Done 
+
+
+Submit your solution.
+----------------------------------------------------------------
+Done
+
+
+Explain how your changes prevent deadlocks.
+----------------------------------------------------------------
+The suggested solution from the lecture suggests numbering the chopsticks (mutexes) and modifying the philosophers
+to always take the lowest indexed chopstick first. This eliminates the case that every philosopher holds one chopstick and
+does not release it. So at any time, it is possible for one philosopher to acquire two chopsticks.
+
+
+How can you test your solution to ensure that it is deadlock-free?
+----------------------------------------------------------------
+You can test if often, but the veryfication is harder. 
+
+
+What are the advantages and disadvantages of your solution?
+----------------------------------------------------------------
+It is a bit unfair because the n-1 philosopher is favored due to the last philosopher trying to acquire the same index as the first
+at first, so the nth chopstick is always free to lock for the penultimate philosopher. 
+
+
+Can you think of a computer science-based real-world scenario where a similar problem could occur?
+--------------------------------------------------------------------------------------------------------------------------------
+Unsynchronized accesses to ressources on server that lie on different places and a client needs multiple differnt ressources to fullfill a
+request. Then it could happen that they reserve them for themselves and therefor everybody gets locked. Realistically that would probably
+not be done because they would release them and try later if they exceed a certain time limit. 

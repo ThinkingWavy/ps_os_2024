@@ -1,0 +1,13 @@
+Task1:
+--------------------------------
+
+syscall: openat(AT_FDCWD, "./hint.txt", O_RDWR)  = -1 ENOENT (No such file or directory)
+That call leads to creating a new file called "hint.txt"
+
+openat(AT_FDCWD, "./key.txt", O_RDONLY) = -1 ENOENT (No such file or directory)
+That call leads to creating a new file called "key.txt"
+
+Then the key is revealed in the hint.txt file.
+
+The secret that should be provided in the solution is in my case: f530d850
+

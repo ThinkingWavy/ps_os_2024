@@ -6,7 +6,7 @@ Programs frequently use _system calls_ to interact with the operating system, fo
 It sometimes can be useful to inspect the system calls performed by a program, e.g. to debug its behavior when no source code is available, or simply to find out more about how it works.
 Linux systems provide the `strace` utility to do just that.
 
-Alongside this document you will find a binary file called [`secret`](secret), which has been compiled to run on ZID-GPL. You need to run the binary on ZID-GPL.
+Alongside this document, you will find a binary file called [`secret`](secret), which has been compiled to run on ZID-GPL. You need to run the binary on ZID-GPL.
 
 Begin by reading `man strace` to familiarize yourself with its output format.
 Then, use `strace` to investigate the behavior of the provided binary. What is the binary trying to do? Try to use the binary as intended and report your findings.
@@ -17,7 +17,7 @@ In the provided file [task2.c](task2/task2.c) you can find an
 implementation of the classic
 [Dining philosophers problem](https://en.wikipedia.org/wiki/Dining_philosophers_problem).
 However, the implementation is flawed: In some situations multiple philosophers
-will wait forever for a chopstick being released, constituting a
+will wait forever for a chopstick to be released, constituting a
 **deadlock**.
 
 - Explain the program.
@@ -27,17 +27,16 @@ will wait forever for a chopstick being released, constituting a
   Explain how your changes prevent deadlocks.
 - How can you test your solution to ensure that it is deadlock-free?
 - What are the advantages and disadvantages of your solution?
-- Can you think of a computer science based real-world scenario where a similar problem could occur?
+- Can you think of a computer science-based real-world scenario where a similar problem could occur?
 
 ## Task 3
-
-In this exercise you will implement a [`thread pool`](https://en.wikipedia.org/wiki/Thread_pool), containing a limited number of worker threads.
+In this exercise, you will implement a [`thread pool`](https://en.wikipedia.org/wiki/Thread_pool), containing a limited number of worker threads.
 
 The provided code in [`task3.c`](task3/task3.c) computes a fixed amount of jobs (not important but for your interest, the job is computing the average time you win if betting on black while playing roulette.).
 
-The file contains a version which spawns several threads. Compile the code with `make task3` and run it. Find out how many threads it spawns.
+The file contains a version that spawns several threads. Compile the code with `make task3` and run it. Find out how many threads it spawns.
 
-This file also contains a version which uses a thread pool interface, which is defined in [`thread_pool.h`](task3/thread_pool.h).
+This file also contains a version that uses a thread pool interface, which is defined in [`thread_pool.h`](task3/thread_pool.h).
 Compiling this (`make task3a`) will not work because the thread pool functions are not implemented yet.
 More information and additional requirements about the thread pool implementation can be found in [`README.md`](task3/README.md).
 

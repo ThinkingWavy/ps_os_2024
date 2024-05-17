@@ -16,8 +16,13 @@ pthread_mutex_t chopstick[NUM_PHILOSOPHER];
 void* dine(void* id) {
 	int n = (int)(intptr_t)id;
 	for (int i = 0; i < EAT_ITERATIONS; ++i) {
-		pthread_mutex_lock(&chopstick[RIGHT_CHOPSTICK(n)]);
-		pthread_mutex_lock(&chopstick[LEFT_CHOPSTICK(n)]);
+		if (n != NUM_PHILOSOPHER - 1) {
+			pthread_mutex_lock(&chopstick[RIGHT_CHOPSTICK(n)]);
+			pthread_mutex_lock(&chopstick[LEFT_CHOPSTICK(n)]);
+		} else {
+			pthread_mutex_lock(&chopstick[LEFT_CHOPSTICK(n)]);
+			pthread_mutex_lock(&chopstick[RIGHT_CHOPSTICK(n)]);
+		}
 		usleep(EAT_DURATION);
 		pthread_mutex_unlock(&chopstick[LEFT_CHOPSTICK(n)]);
 		pthread_mutex_unlock(&chopstick[RIGHT_CHOPSTICK(n)]);
