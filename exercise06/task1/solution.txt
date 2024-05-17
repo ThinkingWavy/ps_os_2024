@@ -22,5 +22,5 @@ How does using e.g. += on atomic types relate to using atomic functions such as 
     They are the same both are guaranteed to be atomic
 
 Which operations other than decrementing/incrementing can be done atomically?
-    All read-modify-write operators (e.g ++ or *=) on these are guaranteed to be atomic.
+    All read-modify-write operators (e.g. ++ or *=) on these are guaranteed to be atomic.
     Source: https://riptutorial.com/c/topic/4924/atomics

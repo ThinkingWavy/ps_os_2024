@@ -5,7 +5,7 @@
 #define THREADS 1000
 #define ITERATIONS 25000
 #define EVEN_INCREASE 42
-#define ODD_INCREASE 41
+#define ODD_INCREASE -41
 
 void* thread_func(void* param);
 
