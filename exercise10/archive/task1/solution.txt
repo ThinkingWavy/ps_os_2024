@@ -1,0 +1,18 @@
+What is the difference between dynamic and static linking?
+    static linking:
+        The program contains copies of all required libraries within itself. Therefore the executable has no additional dependencies.
+    dynamic linking:
+        The program references the necessary libraries at runtime and loads them into memory when needed.
+
+When would you use dynamic linking?
+    When I can be certain that all required dependencies are on the system a program is executed. And when I want that updates/bugfixes in the required libraries are passed to my program without re-compiling it.
+
+When would you use static linking?
+    When a program should be portable and not relaying on the presents of libraries. Or when I have to use a specific version or variant of a library. And when performance is an issue static linking can be faster.
+
+What is position independent code, and why is it useful?
+    Those are executables that can work properly regardless of its absolute memory location. PICs are designed to be relocated without requiring modifications or recompilation.
+    They provide flexibility, portability and security benefits and they play a crucial role in supporting shared libraries, dynamic linking and efficient memory managment.
+
+What is the purpose of the LD_LIBRARY_PATH environment variable?
+    It is used to specifiy additional directories where the system should search for shared libraries at runtime. The standard locations of all shared libraries are either /lib or /usr/lib. All other non-standard directories can be specified with this variable.
