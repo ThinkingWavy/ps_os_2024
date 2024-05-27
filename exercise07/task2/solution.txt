@@ -42,6 +42,6 @@ at first, so the nth chopstick is always free to lock for the penultimate philos
 
 Can you think of a computer science-based real-world scenario where a similar problem could occur?
 --------------------------------------------------------------------------------------------------------------------------------
-Unsynchronized accesses to ressources on server that lie on different places and a client needs multiple differnt ressources to fullfill a
-request. Then it could happen that they reserve them for themselves and therefor everybody gets locked. Realistically that would probably
+Unsynchronized accesses to resources on server that lie on different places and a client needs multiple differnt ressources to fullfill a
+request. Then it could happen that they reserve them for themselves and therefore everybody gets locked. Realistically that would probably
 not be done because they would release them and try later if they exceed a certain time limit. 
