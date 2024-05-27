@@ -1,0 +1,35 @@
+Why is it important to use network byte order with TCP/IP?
+-------------------------------------------------------------------------
+The order of bytes is important in communication between different computer systems. If the byte order is differently interpreted 
+by the two systems then no sensible transmission is possible. It needs the same byte order. 
+
+
+The example uses INADDR_ANY. Could we also use INADDR_LOOPBACK?
+-------------------------------------------------------------------------
+The INADDR_ANY, usually defined as 0.0.0.0, tells the system to bind the socket to all available network interfaces on the host.
+This is useful for servers that need to accept connections from any network interface.
+The INADDR_LOOPBACK, defined as 127.0.0.1, binds the socket to the loopback interface. This means the server will only accept connections
+from the localhost.
+So the answer is yes, here we could also use the INADDR_LOOPBACK because we host the client on the same host as the server. 
+
+
+The example uses SOCK_STREAM. Name two other types of sockets and briefly explain their difference compared to SOCK_STREAM.
+-------------------------------------------------------------------------
+SOCK_STREAM is used in TCP connections. It establishes a connection and ensures reliable data transfer. 
+SOCK_DGRAM is used in UDP transmissions. SOCK_DGRAM is used in connectionless data transfer in unreliable datagram services like UDP. 
+SOCK_RAW enables protocol-less sending and receiving of packets. Mostly used in establishing new networks or diagnostics.    
+
+
+
+What is the range of possible ports that we assign to addr.sin_port.
+-------------------------------------------------------------------------
+Possible usage is from 0 to 65535, but the preferred port numbers, which are registered, are 1024-49151. 
+0-1023 are system ports. Above are temporary ports.   
+
+
+
+Why is it a good idea to use a port greater or equal to 1024?
+-------------------------------------------------------------------------
+Because they are system ports no binding permissions are guaranteed. Especially in UNIX-like systems 
+root privileges are often required to bind to those ports. Also, they are often already in use so there would be 
+conflicts with well-known ports. 
